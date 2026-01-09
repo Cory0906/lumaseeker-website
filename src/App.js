@@ -208,8 +208,7 @@ function App() {
                 </svg>
               </div>
               <span className="text-2xl tracking-tight text-slate-800" style={{fontFamily: 'Georgia, serif'}}>
-              luma<span className="font-normal">seeker</span>
-            </span>
+              luma<span className="font-normal">seeker</span></span>
             </div>
             
             {/* Language Toggle Button */}
