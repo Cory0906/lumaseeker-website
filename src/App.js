@@ -207,7 +207,9 @@ function App() {
                   <path strokeWidth="2" strokeLinecap="round" d="M21 21l-4.35-4.35"/>
                 </svg>
               </div>
-              <img src="/logo.svg" alt="LumaSeeker" className="h-8 sm:h-10" />
+              <span className="text-2xl tracking-tight text-slate-800" style={{fontFamily: 'Georgia, serif'}}>
+              luma<span className="font-normal">seeker</span>
+            </span>
             </div>
             
             {/* Language Toggle Button */}
