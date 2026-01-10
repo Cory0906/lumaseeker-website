@@ -435,7 +435,7 @@ function App() {
                   </div>
                   <div>
                     <div className="font-semibold text-slate-800">{t.contact.email}</div>
-                    <div className="text-slate-600">Lumaseeker@gmail.com</div>
+                    <div className="text-slate-600">hello@lumaseeker.comm</div>
                     <div className="text-slate-500 text-sm">{t.contact.emailReply}</div>
                   </div>
                 </div>
@@ -504,7 +504,7 @@ function App() {
             <div>
               <h4 className="text-white font-semibold mb-4">{t.footer.contactInfo}</h4>
               <ul className="space-y-2 text-sm">
-                <li>Lumaseeker@gmail.com</li>
+                <li>hello@lumaseeker.com</li>
                 <li>{t.contact.weekdays}</li>
                 <li>8:30 AM - 5:00 PM PST</li>
               </ul>
