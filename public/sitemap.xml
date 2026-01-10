@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://lumaseeker-website.vercel.app/</loc>
+    <lastmod>2025-01-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
+```
+
+---
+
+## 第 3 步：创建 robots.txt
+
+在 `public` 文件夹里新建文件 `robots.txt`，内容：
+```
+User-agent: *
+Allow: /
+Sitemap: https://lumaseeker-website.vercel.app/sitemap.xml
