@@ -3,7 +3,7 @@ import './App.css';
 
 const translations = {
   zh: {
-    nav: { product: "产品", features: "特性", scenes: "使用场景", contact: "联系我们", buyNow: "立即购买" },
+    nav: { features: "特性", scenes: "使用场景", contact: "联系我们", buyNow: "立即购买" },
     hero: {
       badge: "P2 页面放大镜 · 解放双手",
       title1: "带支架放大镜",
@@ -53,21 +53,12 @@ const translations = {
     },
     contact: {
       title: "联系我们",
-      desc: "如果您对产品有任何问题，或对购买不完全满意，请随时与我们联系。",
+      desc: "如果您对产品有任何问题，请随时与我们联系。",
       email: "邮箱",
       emailReply: "24小时内回复",
       hours: "服务时间",
       weekdays: "周一至周五",
-      form: {
-        title: "发送消息",
-        name: "您的姓名",
-        namePlaceholder: "请输入姓名",
-        emailLabel: "邮箱地址",
-        emailPlaceholder: "请输入邮箱",
-        message: "您的留言",
-        messagePlaceholder: "请输入留言内容...",
-        submit: "发送消息"
-      }
+      form: { title: "发送消息", name: "您的姓名", namePlaceholder: "请输入姓名", emailLabel: "邮箱地址", emailPlaceholder: "请输入邮箱", message: "您的留言", messagePlaceholder: "请输入留言内容...", submit: "发送消息" }
     },
     footer: {
       desc: "专注视觉辅助产品，让每个人都能看清生活的美好细节。",
@@ -80,7 +71,7 @@ const translations = {
     }
   },
   en: {
-    nav: { product: "Product", features: "Features", scenes: "Use Cases", contact: "Contact", buyNow: "Buy Now" },
+    nav: { features: "Features", scenes: "Use Cases", contact: "Contact", buyNow: "Buy Now" },
     hero: {
       badge: "P2 Page Magnifier · Hands-Free",
       title1: "Magnifier with Stand",
@@ -130,21 +121,12 @@ const translations = {
     },
     contact: {
       title: "Contact Us",
-      desc: "If you have any questions or are not completely satisfied, please contact us.",
+      desc: "If you have any questions, please contact us.",
       email: "Email",
       emailReply: "Response within 24 hours",
       hours: "Support Hours",
       weekdays: "Monday - Friday",
-      form: {
-        title: "Send Message",
-        name: "Your Name",
-        namePlaceholder: "Enter your name",
-        emailLabel: "Email Address",
-        emailPlaceholder: "Enter your email",
-        message: "Your Message",
-        messagePlaceholder: "Enter your message...",
-        submit: "Send Message"
-      }
+      form: { title: "Send Message", name: "Your Name", namePlaceholder: "Enter your name", emailLabel: "Email Address", emailPlaceholder: "Enter your email", message: "Your Message", messagePlaceholder: "Enter your message...", submit: "Send Message" }
     },
     footer: {
       desc: "Dedicated to visual aid products, helping everyone see the beautiful details in life.",
@@ -173,33 +155,25 @@ function App() {
   const toggleLang = () => setLang(lang === 'zh' ? 'en' : 'zh');
 
   return (
-    <div className="min-h-screen bg-white font-sans">
-      {/* Navigation */}
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrollY > 50 ? 'glass shadow-lg shadow-black/5' : 'bg-white/50 backdrop-blur-sm'
-        }`}>
+    <div className="min-h-screen bg-white">
+      {/* 导航栏 - 毛玻璃效果 */}
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrollY > 50 ? 'glass shadow-lg' : 'bg-transparent'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3 sm:gap-4">
+          <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
               <img src="/favicon-32x32.png" alt="LumaSeeker" className="w-8 h-8 sm:w-10 sm:h-10" />
-              <span className="text-xl sm:text-2xl font-bold text-slate-800">
-                Luma<span className="text-gradient">Seeker</span>
-              </span>
+              <span className="text-xl sm:text-2xl font-bold text-slate-800">Luma<span className="text-gradient">Seeker</span></span>
             </div>
-            <button
-              onClick={toggleLang}
-              className="flex items-center gap-1 px-3 py-1.5 rounded-full bg-amber-500 hover:bg-amber-600 text-white text-sm font-semibold transition-all shadow-md hover:shadow-lg hover:scale-105 active:scale-95"
-            >
+            <button onClick={toggleLang} className="px-3 py-1.5 rounded-full bg-amber-500 hover:bg-amber-600 text-white text-sm font-semibold transition-all hover:scale-105 active:scale-95">
               🌐 {lang === 'zh' ? 'EN' : '中文'}
             </button>
           </div>
-
+          
           <div className="hidden lg:flex items-center gap-8">
             <a href="#features" className="text-slate-600 hover:text-amber-600 transition font-medium">{t.nav.features}</a>
             <a href="#scenes" className="text-slate-600 hover:text-amber-600 transition font-medium">{t.nav.scenes}</a>
             <a href="#contact" className="text-slate-600 hover:text-amber-600 transition font-medium">{t.nav.contact}</a>
-            <button className="btn-swift-primary text-white px-6 py-2.5 font-medium">
-              {t.nav.buyNow}
-            </button>
+            <button className="btn-primary text-white px-6 py-2.5 font-medium">{t.nav.buyNow}</button>
           </div>
 
           <button className="lg:hidden p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -210,37 +184,30 @@ function App() {
         </div>
 
         {isMenuOpen && (
-          <div className="lg:hidden glass border-t border-white/20 animate-fade-in">
+          <div className="lg:hidden glass border-t border-white/20">
             <div className="px-4 py-4 space-y-3">
               <a href="#features" className="block py-2 text-slate-700 hover:text-amber-600 font-medium">{t.nav.features}</a>
               <a href="#scenes" className="block py-2 text-slate-700 hover:text-amber-600 font-medium">{t.nav.scenes}</a>
               <a href="#contact" className="block py-2 text-slate-700 hover:text-amber-600 font-medium">{t.nav.contact}</a>
-              <button className="btn-swift-primary w-full text-white py-3 font-medium mt-2">
-                {t.nav.buyNow}
-              </button>
+              <button className="btn-primary w-full text-white py-3 font-medium">{t.nav.buyNow}</button>
             </div>
           </div>
         )}
       </nav>
 
-      {/* Hero Section */}
-      <section className="gradient-bg-hero min-h-screen pt-24 pb-16 flex items-center">
+      {/* Hero 区域 - 渐变背景 */}
+      <section className="gradient-hero min-h-screen pt-24 pb-16 flex items-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="animate-slide-up">
-              <span className="badge-swift px-4 py-2 text-amber-700 text-sm font-medium inline-block mb-6">
-                {t.hero.badge}
-              </span>
+              <span className="badge px-4 py-2 text-amber-700 text-sm font-medium inline-block mb-6">{t.hero.badge}</span>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-800 leading-tight mb-6">
-                <span className="text-gradient">{t.hero.title1}</span>
-                <br />{t.hero.title2}
+                <span className="text-gradient">{t.hero.title1}</span><br />{t.hero.title2}
               </h1>
               <p className="text-lg text-slate-600 mb-8 leading-relaxed max-w-lg">{t.hero.desc}</p>
               <div className="flex flex-wrap gap-4 mb-10">
-                <button className="btn-swift-primary text-white px-8 py-4 font-semibold text-lg">
-                  {t.hero.btnBuy}
-                </button>
-                <button className="btn-swift-secondary text-slate-700 px-8 py-4 font-semibold text-lg flex items-center gap-2">
+                <button className="btn-primary text-white px-8 py-4 font-semibold text-lg">{t.hero.btnBuy}</button>
+                <button className="btn-secondary text-slate-700 px-8 py-4 font-semibold text-lg flex items-center gap-2">
                   <span>▶</span> {t.hero.btnVideo}
                 </button>
               </div>
@@ -253,9 +220,10 @@ function App() {
                 ))}
               </div>
             </div>
+            
+            {/* 产品图片区域 */}
             <div className="relative">
-              <div className="img-container animate-float bg-gradient-to-br from-amber-50 to-orange-100 p-8">
-                {/* 产品图片 - 替换 src 为你的产品图片路径 */}
+              <div className="img-container animate-float bg-gradient-to-br from-amber-50 to-orange-100 p-8 flex items-center justify-center min-h-[400px]">
                 <img src="/product.png" alt="LumaSeeker P2 Magnifier" className="w-full max-w-md mx-auto" />
               </div>
               <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-amber-400/20 rounded-full blur-2xl"></div>
@@ -265,7 +233,7 @@ function App() {
         </div>
       </section>
 
-      {/* Features Section */}
+      {/* 特性区域 */}
       <section id="features" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-16">
@@ -284,8 +252,8 @@ function App() {
         </div>
       </section>
 
-      {/* Scenes Section */}
-      <section id="scenes" className="py-20 gradient-bg-subtle">
+      {/* 使用场景 */}
+      <section id="scenes" className="py-20 gradient-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 mb-4">{t.scenes.title}</h2>
@@ -303,7 +271,7 @@ function App() {
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* 用户评价 */}
       <section className="py-20 bg-slate-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16">{t.testimonials.title}</h2>
@@ -311,41 +279,33 @@ function App() {
             {t.testimonials.items.map((item, i) => (
               <div key={i} className="glass-dark rounded-2xl p-8 hover:scale-105 transition-transform duration-300">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-white font-bold text-lg">
-                    {item.name[0]}
-                  </div>
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-white font-bold text-lg">{item.name[0]}</div>
                   <div>
-                    <div className="font-semibold text-white">{item.name}</div>
+                    <div className="font-semibold">{item.name}</div>
                     <div className="text-sm text-slate-400">{item.age}</div>
                   </div>
                 </div>
                 <p className="text-slate-300 leading-relaxed">"{item.text}"</p>
-                <div className="mt-4 flex gap-1">
-                  {[...Array(5)].map((_, j) => <span key={j} className="text-amber-400">★</span>)}
-                </div>
+                <div className="mt-4 flex gap-1">{[...Array(5)].map((_, j) => <span key={j} className="text-amber-400">★</span>)}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 gradient-bg">
+      {/* CTA 区域 */}
+      <section className="py-20 gradient-cta">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 mb-6">{t.cta.title}</h2>
           <p className="text-lg text-slate-700 mb-10">{t.cta.desc}</p>
           <div className="flex flex-wrap justify-center gap-4">
-            <button className="btn-swift-primary text-white px-10 py-4 font-semibold text-lg animate-pulse-glow">
-              {t.cta.btnBuy}
-            </button>
-            <button className="btn-swift-secondary text-slate-700 px-10 py-4 font-semibold text-lg">
-              {t.cta.btnContact}
-            </button>
+            <button className="btn-primary animate-glow text-white px-10 py-4 font-semibold text-lg">{t.cta.btnBuy}</button>
+            <button className="btn-secondary text-slate-700 px-10 py-4 font-semibold text-lg">{t.cta.btnContact}</button>
           </div>
         </div>
       </section>
 
-      {/* Contact Section */}
+      {/* 联系我们 */}
       <section id="contact" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-16">
@@ -386,16 +346,14 @@ function App() {
                   <label className="block text-sm font-medium text-slate-700 mb-2">{t.contact.form.message}</label>
                   <textarea className="input-swift w-full px-4 py-3 h-32 resize-none" placeholder={t.contact.form.messagePlaceholder}></textarea>
                 </div>
-                <button type="submit" className="btn-swift-primary w-full text-white py-4 font-semibold text-lg">
-                  {t.contact.form.submit}
-                </button>
+                <button type="submit" className="btn-primary w-full text-white py-4 font-semibold text-lg">{t.contact.form.submit}</button>
               </form>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
+      {/* 页脚 */}
       <footer className="glass-dark text-slate-300 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid md:grid-cols-4 gap-10 mb-12">
@@ -422,7 +380,7 @@ function App() {
               </ul>
             </div>
           </div>
-          <div className="divider-swift mb-8"></div>
+          <div className="divider mb-8"></div>
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm">{t.footer.rights}</p>
             <div className="flex gap-6 text-sm">
