@@ -220,8 +220,15 @@ function App() {
                 ))}
               </div>
             </div>
-
             {/* 产品图片区域 - 之后添加产品图片 */}
+            {/* 产品图片区域 - 之后添加产品图片 */}
+            <div className="relative">
+              <div className="img-container animate-float bg-gradient-to-br from-amber-50 to-orange-100 p-8 flex items-center justify-center min-h-[400px]">
+                {/* 把产品图片放到 public 文件夹，命名为 product.png */}
+              </div>
+              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-amber-400/20 rounded-full blur-2xl"></div>
+              <div className="absolute -top-4 -left-4 w-32 h-32 bg-orange-400/20 rounded-full blur-2xl"></div>
+            </div>
           </div>
         </div>
       </section>
