@@ -327,7 +327,7 @@ function App() {
                 <div>
                   <h3 className="font-bold text-slate-800 mb-1">{t.contact.hours}</h3>
                   <p className="text-slate-600">{t.contact.weekdays}</p>
-                  <p className="text-sm text-slate-500 mt-1">8:30 AM - 5:00 PM PST</p>
+                  <p className="text-sm text-slate-500 mt-1">8:30 AM - 5:00 PM EST</p>
                 </div>
               </div>
             </div>
@@ -376,7 +376,7 @@ function App() {
               <h4 className="text-white font-semibold mb-4">{t.footer.contactInfo}</h4>
               <ul className="space-y-3 text-sm">
                 <li>info@lumaseeker.com</li>
-                <li>Mon - Fri: 8:30 AM - 5 PM PST</li>
+                <li>Mon - Fri: 8:30 AM - 5 PM EST</li>
               </ul>
             </div>
           </div>
