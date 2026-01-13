@@ -201,26 +201,25 @@ function App() {
           {/* Logo + Language Toggle */}
           <div className="flex items-center gap-3 sm:gap-4">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-amber-400 to-amber-600 rounded-full flex items-center justify-center shadow-lg">
-                <svg className="w-4 h-4 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <circle cx="11" cy="11" r="8" strokeWidth="2"/>
-                  <path strokeWidth="2" strokeLinecap="round" d="M21 21l-4.35-4.35"/>
-                </svg>
-              </div>
-              <span className="text-2xl tracking-tight text-slate-800" style={{fontFamily: 'Georgia, serif'}}>
+              <img
+                src="/favicon-32x32.png"
+                alt="LumaSeeker Logo"
+                className="w-8 h-8 sm:w-10 sm:h-10"
+              />
+              <span className="text-2xl tracking-tight text-slate-800" style={{ fontFamily: 'Georgia, serif' }}>
                 luma<span className="font-normal">seeker</span>
               </span>
             </div>
-            
+
             {/* Language Toggle Button */}
-            <button 
+            <button
               onClick={toggleLang}
               className="flex items-center gap-1 px-3 py-1.5 rounded-full bg-amber-500 hover:bg-amber-600 text-white text-sm font-semibold transition-all shadow"
             >
               🌐 {lang === 'zh' ? 'EN' : '中文'}
             </button>
           </div>
-          
+
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-6">
             <a href="#product" className="text-slate-700 hover:text-amber-600 transition font-medium">{t.nav.product}</a>
@@ -265,7 +264,7 @@ function App() {
               <span className="w-2 h-2 bg-amber-500 rounded-full animate-pulse"></span>
               {t.hero.badge}
             </div>
-            
+
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-800 leading-tight">
               {t.hero.title1}
               <br />
@@ -273,7 +272,7 @@ function App() {
                 {t.hero.title2}
               </span>
             </h1>
-            
+
             <p className="text-lg sm:text-xl text-slate-600 leading-relaxed max-w-lg">
               {t.hero.desc}
             </p>
@@ -314,7 +313,7 @@ function App() {
                 <svg className="w-16 sm:w-20 h-16 sm:h-20 text-slate-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
-                <p className="text-slate-400 text-center px-4">{t.hero.imgPlaceholder}<br/><span className="text-sm">{t.hero.imgSub}</span></p>
+                <p className="text-slate-400 text-center px-4">{t.hero.imgPlaceholder}<br /><span className="text-sm">{t.hero.imgSub}</span></p>
               </div>
               <div className="absolute -bottom-4 -right-4 bg-amber-500 text-white px-4 py-2 rounded-full font-bold shadow-lg">
                 ¥159
@@ -427,7 +426,7 @@ function App() {
             <div>
               <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 mb-6">{t.contact.title}</h2>
               <p className="text-slate-600 text-base sm:text-lg mb-8">{t.contact.desc}</p>
-              
+
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center flex-shrink-0">
@@ -439,7 +438,7 @@ function App() {
                     <div className="text-slate-500 text-sm">{t.contact.emailReply}</div>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center flex-shrink-0">
                     <span className="text-xl">🕐</span>
@@ -490,7 +489,7 @@ function App() {
               </div>
               <p className="leading-relaxed mb-4">{t.footer.desc}</p>
             </div>
-            
+
             <div>
               <h4 className="text-white font-semibold mb-4">{t.footer.quickLinks}</h4>
               <ul className="space-y-2 text-sm">
@@ -500,7 +499,7 @@ function App() {
                 <li><a href="#contact" className="hover:text-amber-400 transition">{t.nav.contact}</a></li>
               </ul>
             </div>
-            
+
             <div>
               <h4 className="text-white font-semibold mb-4">{t.footer.contactInfo}</h4>
               <ul className="space-y-2 text-sm">
@@ -510,7 +509,7 @@ function App() {
               </ul>
             </div>
           </div>
-          
+
           <div className="border-t border-slate-800 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-sm">{t.footer.rights}</p>
             <div className="flex gap-4 sm:gap-6 text-sm">
