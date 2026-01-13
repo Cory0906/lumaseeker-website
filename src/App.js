@@ -182,7 +182,7 @@ function App() {
   const [scrollY, setScrollY] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeScene, setActiveScene] = useState(0);
-  const [lang, setLang] = useState('zh');
+  const [lang, setLang] = useState('en');
   const t = translations[lang];
 
   useEffect(() => {
