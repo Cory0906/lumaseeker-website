@@ -64,7 +64,7 @@ const translations = {
       desc: "专注视觉辅助产品，让每个人都能看清生活的美好细节。",
       quickLinks: "快速链接",
       contactInfo: "联系方式",
-      rights: "© 2025 LumaSeeker. 保留所有权利。",
+      rights: "© 2026 LumaSeeker. 保留所有权利。",
       privacy: "隐私政策",
       terms: "服务条款",
       returns: "退换政策"
@@ -132,7 +132,7 @@ const translations = {
       desc: "Dedicated to visual aid products, helping everyone see the beautiful details in life.",
       quickLinks: "Quick Links",
       contactInfo: "Contact Info",
-      rights: "© 2025 LumaSeeker. All rights reserved.",
+      rights: "© 2026 LumaSeeker. All rights reserved.",
       privacy: "Privacy Policy",
       terms: "Terms of Service",
       returns: "Return Policy"
