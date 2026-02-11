@@ -346,23 +346,92 @@ function App() {
             </div>
             <div className="card-swift p-8">
               <h3 className="text-xl font-bold text-slate-800 mb-6">{t.contact.form.title}</h3>
-              <form className="space-y-5">
+              <form 
+                className="space-y-5"
+                onSubmit={async (e) => {
+                  e.preventDefault();
+                  
+                  const form = e.target;
+                  const submitButton = form.querySelector('button[type="submit"]');
+                  const originalText = submitButton.textContent;
+                  
+                  const formData = {
+                    name: form.from_name.value,
+                    email: form.from_email.value,
+                    message: form.message.value,
+                  };
+                  
+                  submitButton.disabled = true;
+                  submitButton.textContent = lang === 'zh' ? '发送中...' : 'Sending...';
+                  submitButton.style.opacity = '0.6';
+                  
+                  try {
+                    const response = await fetch('/api/send-email', {
+                      method: 'POST',
+                      headers: {
+                        'Content-Type': 'application/json',
+                      },
+                      body: JSON.stringify(formData),
+                    });
+
+                    const data = await response.json();
+
+                    if (!response.ok) {
+                      throw new Error(data.error || 'Failed to send email');
+                    }
+                    
+                    alert(lang === 'zh' 
+                      ? '✅ 消息发送成功！我们会在24小时内回复您。' 
+                      : '✅ Message sent successfully! We will respond within 24 hours.');
+                    
+                    form.reset();
+                    
+                  } catch (error) {
+                    console.error('发送失败:', error);
+                    alert(lang === 'zh' 
+                      ? '❌ 发送失败，请稍后重试或直接发送邮件到 info@lumaseeker.com' 
+                      : '❌ Failed to send. Please try again or email us at info@lumaseeker.com');
+                  } finally {
+                    submitButton.disabled = false;
+                    submitButton.textContent = originalText;
+                    submitButton.style.opacity = '1';
+                  }
+                }}
+              >
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-2">{t.contact.form.name}</label>
-                  <input type="text" className="input-swift w-full px-4 py-3" placeholder={t.contact.form.namePlaceholder} />
+                  <input 
+                    type="text" 
+                    name="from_name"
+                    className="input-swift w-full px-4 py-3" 
+                    placeholder={t.contact.form.namePlaceholder}
+                    required
+                  />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-2">{t.contact.form.emailLabel}</label>
-                  <input type="email" className="input-swift w-full px-4 py-3" placeholder={t.contact.form.emailPlaceholder} />
+                  <input 
+                    type="email" 
+                    name="from_email"
+                    className="input-swift w-full px-4 py-3" 
+                    placeholder={t.contact.form.emailPlaceholder}
+                    required
+                  />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-2">{t.contact.form.message}</label>
-                  <textarea className="input-swift w-full px-4 py-3 h-32 resize-none" placeholder={t.contact.form.messagePlaceholder}></textarea>
+                  <textarea 
+                    name="message"
+                    className="input-swift w-full px-4 py-3 h-32 resize-none" 
+                    placeholder={t.contact.form.messagePlaceholder}
+                    required
+                  ></textarea>
                 </div>
-                <button type="submit" className="btn-primary w-full text-white py-4 font-semibold text-lg">{t.contact.form.submit}</button>
+                <button type="submit" className="btn-primary w-full text-white py-4 font-semibold text-lg">
+                  {t.contact.form.submit}
+                </button>
               </form>
             </div>
-          </div>
         </div>
       </section>
 
