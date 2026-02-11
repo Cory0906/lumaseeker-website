@@ -37,7 +37,7 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         from: 'LumaSeeker <info@lumaseeker.com>',
-        to: 'mercury0096@gmail.com',
+        to: 'info@lumaseeker.com',
         reply_to: email,
         subject: `LumaSeeker Contact - Message from ${name}`,
         html: `
