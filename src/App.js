@@ -225,11 +225,17 @@ function App() {
                 ))}
               </div>
             </div>
-            {/* 产品图片区域 - 之后添加产品图片 */}
-            {/* 产品图片区域 - 之后添加产品图片 */}
             <div className="relative">
-              <div className="img-container animate-float bg-gradient-to-br from-amber-50 to-orange-100 p-8 flex items-center justify-center min-h-[400px]">
-                {/* 把产品图片放到 public 文件夹，命名为 product.png */}
+              <div className="img-container animate-float bg-gradient-to-br from-amber-50 to-orange-100 p-8 flex items-center justify-center min-h-[400px] overflow-hidden">
+                <div className="relative z-10">
+                  <img
+                    src="/product.png"
+                    alt="LumaSeeker P2 Magnifier"
+                    className="w-full h-auto max-w-md object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                {/* 装饰性光晕 */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-amber-300/30 rounded-full blur-3xl"></div>
               </div>
               <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-amber-400/20 rounded-full blur-2xl"></div>
               <div className="absolute -top-4 -left-4 w-32 h-32 bg-orange-400/20 rounded-full blur-2xl"></div>
