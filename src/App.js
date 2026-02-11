@@ -389,16 +389,16 @@ function App() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm">{t.footer.rights}</p>
             <div className="flex gap-6 text-sm">
-              <a href="#" className="hover:text-amber-400 transition">{t.footer.privacy}</a>
-              <a href="#" className="hover:text-amber-400 transition">{t.footer.terms}</a>
-              <a href="#" className="hover:text-amber-400 transition">{t.footer.returns}</a>
+              <button className="hover:text-amber-400 transition">{t.footer.privacy}</button>
+              <button className="hover:text-amber-400 transition">{t.footer.terms}</button>
+              <button className="hover:text-amber-400 transition">{t.footer.returns}</button>
             </div>
           </div>
         </div>
       </footer>
       {/* 视频模态框 */}
       {isVideoOpen && (
-        <div 
+        <div
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-fadeIn"
           onClick={() => {
             if (videoRef.current) {
@@ -407,7 +407,7 @@ function App() {
             setIsVideoOpen(false);
           }}
         >
-          <div 
+          <div
             className="relative w-full max-w-4xl bg-white/10 backdrop-blur-md rounded-3xl shadow-2xl overflow-hidden animate-scaleIn"
             onClick={(e) => e.stopPropagation()}
           >
