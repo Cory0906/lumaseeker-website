@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './App.css';
 
 const translations = {
@@ -145,6 +145,8 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [lang, setLang] = useState('en');
   const t = translations[lang];
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
+  const videoRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -207,7 +209,10 @@ function App() {
               <p className="text-lg text-slate-600 mb-8 leading-relaxed max-w-lg">{t.hero.desc}</p>
               <div className="flex flex-wrap gap-4 mb-10">
                 <button className="btn-primary text-white px-8 py-4 font-semibold text-lg">{t.hero.btnBuy}</button>
-                <button className="btn-secondary text-slate-700 px-8 py-4 font-semibold text-lg flex items-center gap-2">
+                <button
+                  onClick={() => setIsVideoOpen(true)}
+                  className="btn-secondary text-slate-700 px-8 py-4 font-semibold text-lg flex items-center gap-2"
+                >
                   <span>▶</span> {t.hero.btnVideo}
                 </button>
               </div>
@@ -391,6 +396,53 @@ function App() {
           </div>
         </div>
       </footer>
+      {/* 视频模态框 */}
+      {isVideoOpen && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-fadeIn"
+          onClick={() => {
+            if (videoRef.current) {
+              videoRef.current.pause();
+            }
+            setIsVideoOpen(false);
+          }}
+        >
+          <div 
+            className="relative w-full max-w-4xl bg-white/10 backdrop-blur-md rounded-3xl shadow-2xl overflow-hidden animate-scaleIn"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* 关闭按钮 */}
+            <button
+              onClick={() => {
+                if (videoRef.current) {
+                  videoRef.current.pause();
+                }
+                setIsVideoOpen(false);
+              }}
+              className="absolute top-4 right-4 z-10 w-10 h-10 bg-white/20 hover:bg-white/30 backdrop-blur-md rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
+            >
+              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            {/* 视频播放器 */}
+            <div className="relative aspect-video">
+              <video
+                ref={videoRef}
+                className="w-full h-full"
+                controls
+                autoPlay
+                playsInline
+              >
+                {/* 替换为你的视频URL */}
+                <source src="/videos/product-demo.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
