@@ -226,19 +226,21 @@ function App() {
               </div>
             </div>
             <div className="relative">
-              <div className="img-container animate-float bg-gradient-to-br from-amber-50 to-orange-100 p-8 flex items-center justify-center min-h-[400px] overflow-hidden">
+              <div className="img-container animate-float bg-gradient-to-br from-amber-50 to-orange-100 p-12 flex items-center justify-center min-h-[500px] overflow-hidden rounded-3xl">
                 <div className="relative z-10">
                   <img
                     src="/product.png"
                     alt="LumaSeeker P2 Magnifier"
-                    className="w-full h-auto max-w-md object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-500"
+                    className="w-full h-auto max-w-lg object-contain filter drop-shadow-[0_20px_40px_rgba(217,119,6,0.3)] hover:scale-105 transition-all duration-700 hover:drop-shadow-[0_25px_50px_rgba(217,119,6,0.4)]"
+                    style={{ mixBlendMode: 'multiply' }}
                   />
                 </div>
-                {/* 装饰性光晕 */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-amber-300/30 rounded-full blur-3xl"></div>
+                {/* 背景光晕效果 */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-radial from-amber-200/40 via-orange-200/20 to-transparent rounded-full blur-3xl animate-pulse"></div>
+                <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-amber-300/20 rounded-full blur-2xl"></div>
               </div>
-              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-amber-400/20 rounded-full blur-2xl"></div>
-              <div className="absolute -top-4 -left-4 w-32 h-32 bg-orange-400/20 rounded-full blur-2xl"></div>
+              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-amber-400/20 rounded-full blur-3xl animate-pulse"></div>
+              <div className="absolute -top-6 -left-6 w-40 h-40 bg-orange-400/20 rounded-full blur-3xl animate-pulse"></div>
             </div>
           </div>
         </div>
